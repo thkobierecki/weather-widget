@@ -1,6 +1,6 @@
 # Weather-widget
 
-A weather-widged done with React, weather API and styled-components.
+A weather-widget done with React, weather API and styled-components.
 
 ## Installation
 - Clone this repo ```git clone https://github.com/thkobierecki/weather-widget.git```
