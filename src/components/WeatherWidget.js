@@ -9,8 +9,8 @@ const StyledContainer = styled.div`
   width: 100%;
   min-height: 300px;
   padding: 20px 20px 10px 30px;
-   overflow-x:hidden;
-   border-bottom:1px solid darkgray;
+  overflow-x: hidden;
+  border-bottom: 1px solid darkgray;
 
   @media (min-width: 600px) {
     width: 90%;
@@ -39,7 +39,7 @@ const WeatherWidget = ({
     />
     {isChanged ? (
       <>
-        <TopSection forecastDay={forecastDay[0]} />
+        <TopSection cities={cities} forecastDay={forecastDay[0]} />
         <BottomSection forecastDay={forecastDay} />
       </>
     ) : (

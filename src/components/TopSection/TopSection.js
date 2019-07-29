@@ -12,7 +12,7 @@ const StyledContainer = styled.div`
 `;
 const StyledWrapperLeft = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${props => (props.prim ? "column" : "row")};
   align-items: center;
 `;
 const StyledWrapperRight = styled.div`
@@ -21,25 +21,31 @@ const StyledWrapperRight = styled.div`
   align-items: left;
   margin-right: 20px;
 `;
+
 const StyledParagraph = styled.p`
   font-size: ${props => props.bold && "2.5rem"};
   margin-left: ${props => props.bold && "20px"};
   color: ${props => props.bold && "black"};
 `;
 const StyledIcon = styled.img`
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
 `;
 const StyledUnit = styled.span`
   margin-top: -15px;
 `;
 
-const TopSection = ({ forecastDay }) => (
+const TopSection = ({ forecastDay, cities }) => (
   <StyledContainer>
-    <StyledWrapperLeft>
-      <StyledIcon src={`/img/${forecastDay.type}.png`} />
-      <StyledParagraph bold>{forecastDay.temperature}</StyledParagraph>
-      <StyledUnit>&deg;C</StyledUnit>
+    <StyledWrapperLeft prim>
+      <StyledParagraph>
+        {cities[forecastDay.cityId].name}, {forecastDay.date}
+      </StyledParagraph>
+      <StyledWrapperLeft>
+        <StyledIcon src={`/img/${forecastDay.type}.png`} />
+        <StyledParagraph bold>{forecastDay.temperature}</StyledParagraph>
+        <StyledUnit>&deg;C</StyledUnit>
+      </StyledWrapperLeft>
     </StyledWrapperLeft>
     <StyledWrapperRight>
       <StyledParagraph>
